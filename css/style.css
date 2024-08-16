@@ -195,35 +195,42 @@ h3 {
 
 #slideshow {
     position: relative;
-    /* border: 5px solid red; */
+    /* border: 5px solid red;  */
     width: 1200px;
     margin: 0 auto;
 }
 
 .slides {
     position: relative;
+    /* border: 5px solid red; */
     width: 400%;
     display: flex;
     justify-content: space-around;
-    right: 100%;
 }
 
-.back{
+#slideshow > button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#next, #prev {
+    z-index: 100;
+}
+
+#prev {
     position: absolute;
     top: 230px;
     font-size: 50px;
-    background-color: white;
     border: none;
-  }
+}
 
-.next{
+#next {
     position: absolute;
     top: 230px;
     left: 1162.37px;
     font-size: 50px;
-    background-color: white;
     border: none;
-  }
+}
 
 /* ----------------------------------------------------------- */
 
@@ -231,9 +238,8 @@ h3 {
     /* border: solid 5px red; */
     height: 100vh;
     padding-top: 120px;
+    margin-top: 70px;
     box-sizing: border-box;
-    /* justify-content: center; */
-    /* 수평 가운데 정렬 */
 }
 
 #four > .content > h2::after {
