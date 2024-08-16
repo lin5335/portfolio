@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/index2.js"></script>
+    <script src="js/index3.js"></script>
 </head>
 
 
@@ -24,7 +26,7 @@
     </nav>
 
 
-    <div id="one">
+    <div id="one" class="page">
         <div class="content">
             <div id="inner1">
                 <img src="images/sticker1.png" alt="이모티콘1">
@@ -44,7 +46,7 @@
         </div>
     </div>
 
-    <div id="two">
+    <div id="two" class="page">
         <div class="content">
             <h2>ABOUT</h2>
             <div id="inner3">
@@ -61,7 +63,6 @@
                     <h3>Certification</h3>
                     <ul>
                         <li><span>2020</span>리눅스마스터 2급 취득</li>
-                        <li><span>2023</span>정보처리기사 필기 합격</li>
                     </ul>
 
                     <h3>Aword</h3>
@@ -82,40 +83,14 @@
         </div>
     </div>
 
-    <!-- <div id="three">
-        <div class="content">
-            <h2>PROJECT</h2>
-
-            <div class="slideshow">
-                <ul class="slides">
-                    <li><img src="images/slide1.png"></li>
-                    <li><img src="images/slide2.png"></li>
-                    <li><img src="images/slide3.png"></li>
-                </ul>
-                <p>
-                    <span class="prev" onclick="moveSlide(-1)">&#10094;</span>
-                    <span class="next" onclick="moveSlide(1)">&#10095;</span>
-                </p>
-            </div>
-
-            <div id="inner5">
-                <ul>
-                    <li>설명</li>
-                    <li>제작 기간 : 1주일</li>
-                    <li>사용 툴 : Photoshop, Illustrator, Visual Studio Code</li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
-
-    <div id="three">
+    <div id="three" class="page">
         <div class="text">
             <h2>PROJECT</h2>
         </div>
              
         <div id="slideshow">
-            <button class="back">❮</button>
-            <button class="next">❯</button>
+            <button type="button" id="prev"><span>❮</span></button>
+            <button type="button" id="next"><span>❯</span></button>
             <div class="slides">
                 <div class="slides_img">
                     <a href="" target="_blank"></a>
@@ -185,7 +160,7 @@
         </div>
     </div> -->
 
-    <div id="four">
+    <div id="four" class="page">
         <div class="content">
             <h2>DESIGN</h2>
             <div id="design_content">
@@ -219,7 +194,7 @@
         </div>
     </div>
 
-    <footer id="five">
+    <footer id="five" class="page">
         <div class="content">
             <h2>CONTACT</h2>
             <div id="contact_box">
