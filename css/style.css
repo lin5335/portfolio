@@ -1,0 +1,448 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: Noto Sans KR, Arial, Helvetica, sans-serif;
+}
+
+/* home */
+
+#one {
+    display: flex;
+    background-image: url("../images/portfolio/bg1.png");
+    height: 100vh;
+    align-items: flex-end;
+}
+
+#inner1 {
+    display: flex;
+    margin-bottom: 60px;
+}
+
+#inner2 {
+    display: flex;
+}
+
+#inner1 > p {
+    width: 520px;
+    height: 148px;
+    font-size: 27px;
+    line-height: 35px;
+    background-image: url("../images/portfolio/Shape1.png");
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 40px;
+}
+
+
+#inner1 img {
+    margin-right: 20px;
+}
+
+#inner2 > p {
+    width: 650px;
+    height: 156px;
+    font-size: 27px;
+    line-height: 35px;
+    background-image: url("../images/portfolio/Shape2.png");
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 40px;
+    margin-left: 220px;
+}
+
+.sticker {
+    margin-left: auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+
+/* 내비게이션 영역 */
+
+#menu {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    z-index: 1;
+}
+
+#menu > ul {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#menu > ul > li {
+    width: 240px;
+    color: black;
+    line-height: 100px;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+#menu > ul > li > a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+/* ----------------------------------------------------------- */
+
+/* proflie */
+
+.content {
+    /* border: 5px solid aqua; */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#two {
+    height: 100vh;
+    padding-top: 130px;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 50px;
+    font-family: KIMM_Bold, Arial, Helvetica, sans-serif;
+    margin-bottom: 40px;
+}
+
+#two > .content > h2::after {
+    content: "";
+    display: inline-block;
+    width: 937px;
+    height: 1px;
+    background-color: black;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#inner3 {
+    display: flex;
+    margin-bottom: 70px;
+}
+
+#inner4 {
+    width: 640px;
+    margin-left: auto;
+    padding: 60px 0 ;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#inner4 > ul {
+    margin-bottom: 20px;
+}
+
+#inner4 > ul > li {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#inner4 > ul:last-child {
+    margin: 0; /* 마지막 ul의 li에는 margin-bottom 속성을 적용하지 않음 */
+}
+
+#inner4 > ul > li > span {
+    padding-right: 30px;
+}
+
+.skill {
+    display: flex;
+}
+
+.skill_img {
+    padding-right: 20px;
+}
+
+.skill_img > img {
+    width: 50px;
+    height: 50px;
+}
+
+/* ----------------------------------------------------------- */
+
+/* project */
+
+#three {
+    overflow: hidden;
+}
+
+.text > h2::after {
+    content: "";
+    display: inline-block;
+    width: 906px;
+    height: 1px;
+    background-color: black;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.text {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 7%;
+    margin-bottom: 50px;
+}
+
+.slides_img > ul > li {
+    text-align: center;
+}
+
+.slides_img > ul {
+    margin-top: 20px;
+}
+
+#slideshow {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.slides {
+    position: relative;
+    width: 400%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#slideshow img {
+    cursor: pointer;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.img-wrapper img {
+    width: 100%;
+    display: block;
+}
+
+.img-wrapper .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-btn {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
+.slides_name {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px 0 20px 0;
+}
+
+.slides_contribution {
+    padding-bottom: 5px;
+}
+
+#slideshow > button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#next, #prev {
+    z-index: 100;
+}
+
+#prev {
+    position: absolute;
+    top: 230px;
+    font-size: 50px;
+    border: none;
+}
+
+#next {
+    position: absolute;
+    top: 230px;
+    left: 1162.37px;
+    font-size: 50px;
+    border: none;
+}
+
+/* ----------------------------------------------------------- */
+
+/* design */
+
+#four {
+    height: 100vh;
+    padding-top: 120px;
+    margin-top: 70px;
+    box-sizing: border-box;
+}
+
+#four > .content > h2::after {
+    content: "";
+    display: inline-block;
+    width: 969.09px;
+    height: 1px;
+    background-color: black;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#design_content {
+    width: 1200px;
+    display: flex;
+}
+
+#design_content > div:nth-child(1) {
+    width: 820px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#design_content > div:nth-child(1) > div:nth-child(1) {
+    width: 530px;
+    height: 340px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#design_content > div:nth-child(1) > div:nth-child(2) {
+    width: 250px;
+    height: 340px;
+    margin-right: 20px;
+}
+
+#design_content > div:nth-child(1) > div:nth-child(3) {
+    width: 800px;
+    height: 300px;
+}
+
+#design_content > div:nth-child(2) {
+    width: 380px;
+    height: 660px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#photo-scroll {
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+}
+
+#photo {
+    display: block; 
+    height: auto;
+    max-width: 90%;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* contact */
+
+#five {
+    height: 100vh;
+    background-image: url("../images/portfolio/bg2.png");
+    padding-top: 280px;
+    box-sizing: border-box;
+}
+
+#five > .content > h2::after {
+    content: "";
+    display: inline-block;
+    width: 910px;
+    height: 1px;
+    background-color: white;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+#five > .content > h2 {
+    color: white;
+}
+
+#contact_box {
+    margin-bottom: 15%;
+    display: flex;
+}
+
+#inner6 {
+    width: 900px;
+    margin-left: auto;
+}
+
+#inner6 > p {
+    font-size: 27px;
+    line-height: 40px;
+    box-sizing: border-box;
+}
+
+#inner6 > p:nth-child(1) {
+    width: 500px;
+    height: 103px;
+    background-image: url('../images/portfolio/Shape3.png');
+    background-repeat: no-repeat;
+    padding: 20px 30px 30px 55px;
+    margin-top: 20px;
+}
+
+#inner6 > p:nth-child(2) {
+    width: 400px;
+    height: 141px;
+    background-image: url('../images/portfolio/Shape4.png');
+    background-repeat: no-repeat;
+    padding: 20px 30px 30px 85px;
+    margin-top: 20px;
+}
