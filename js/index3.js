@@ -15,37 +15,25 @@ $(function () {
 
     const lastPageIndex = $('.page').length - 1;
 
+
+    const $sections = $('.page');
+
     window.addEventListener('wheel', function (event) {
         event.preventDefault();
-
         if ($html.is(':animated')) return;
 
         if (event.deltaY > 0) {
             if (pageIndex >= lastPageIndex) return;
-
             pageIndex++;
-        }
-
-        else if (event.deltaY < 0) {
+        } else {
             if (pageIndex <= 0) return;
-
             pageIndex--;
         }
 
-        const posTop = windowHeight * pageIndex;
+        const targetTop = $sections.eq(pageIndex).offset().top;
 
-        console.log('pageIndex = %d, posTop = %d', pageIndex, posTop);
+        console.log('pageIndex = %d, targetTop = %d', pageIndex, targetTop);
 
-        $html.animate({ scrollTop: posTop });
+        $html.animate({ scrollTop: targetTop }, 500);
     }, { passive: false });
-
-    window.addEventListener('resize', function () {
-        windowHeight = $window.height();
-
-        console.log('RESIZE: windowHeight = ' + windowHeight);
-
-        const posTop = windowHeight * pageIndex;
-        $html.animate({ scrollTop: posTop }, 200);
-    });
-
 });

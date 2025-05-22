@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+$(function () {
 
   const scrolls = document.querySelectorAll(".menu_scroll");
   const onePage = document.querySelectorAll("#one");
@@ -33,20 +33,57 @@ window.addEventListener('load', function () {
     window.scroll({top:fifthTop, behavior: 'smooth'})
   })
 
+
+
   var overlay = document.getElementById("overlay");
   var photo = document.getElementById("photo");
   var design = document.querySelectorAll(".gallery > a");
 
-  for(var i=0; i<design.length; i++) {
-    design[i].addEventListener("click", function(e){
-    e.preventDefault();     // 브라우저의 기본 동작을 실행하지 않도록 하는 메소드
-    photo.src = this.href;
-    overlay.style.display = "block";
+  for (var i = 0; i < design.length; i++) {
+    design[i].addEventListener("click", function (e) {
+      e.preventDefault();
+
+      var href = this.href;
+      photo.src = href;
+
+      // design4 이미지일 때만 스크롤 가능하도록
+      if (href.includes("design4_lg.png")) {
+        overlay.classList.add("active");
+        overlay.style.overflow = "hidden";
+
+        const scrollBox = document.getElementById("photo-scroll");
+        scrollBox.style.maxHeight = "90vh";
+        scrollBox.style.overflowY = "auto";
+
+        photo.style.height = "auto";
+        photo.style.maxHeight = "none";
+        photo.style.maxWidth = "100%";
+
+        photo.onload = function () {
+          scrollBox.scrollTop = 0;
+        };
+      } 
+      
+      else {
+        overlay.classList.add("active");
+        overlay.style.overflow = "hidden";
+
+        const scrollBox = document.getElementById("photo-scroll");
+        scrollBox.style.maxHeight = "none";
+        scrollBox.style.overflowY = "hidden";
+
+        photo.style.maxHeight = "80vh";
+        photo.style.maxWidth = "90%";
+      }
     });
 
-    overlay.addEventListener("click", function(){
-    this.removeAttribute("style");
-    });
-  }
+      overlay.addEventListener("click", function () {
+        overlay.classList.remove("active");
+        overlay.style.overflow = "hidden";
 
+        const scrollBox = document.getElementById("photo-scroll");
+        scrollBox.removeAttribute("style");
+        photo.removeAttribute("style");
+      });
+    }
 });
