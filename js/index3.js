@@ -4,36 +4,69 @@
 $(function () {
     const $html = $('html');
     const $window = $(window);
+    const $sections = $('.page');
+    const lastPageIndex = $sections.length - 1;
 
     let windowHeight = $window.height();
-
     let pageIndex = Math.round($window.scrollTop() / windowHeight);
+    let isAnimating = false;
 
-    console.log('LOAD: pageIndex = ' + pageIndex);
+    // 처음 로딩 시 위치 정렬
+    $html.scrollTop(pageIndex * windowHeight);
 
-    $html.animate({ scrollTop: pageIndex * windowHeight }, 10);
+    // 현재 위치 기반으로 pageIndex 다시 계산
+    function updatePageIndex() {
+        const scrollTop = $window.scrollTop();
+        $sections.each(function (i) {
+            const offsetTop = $(this).offset().top;
+            if (Math.abs(scrollTop - offsetTop) < windowHeight / 2) {
+                pageIndex = i;
+                return false; // break
+            }
+        });
+    }
 
-    const lastPageIndex = $('.page').length - 1;
-
-
-    const $sections = $('.page');
-
+    // 휠로 한 화면 단위 스크롤
     window.addEventListener('wheel', function (event) {
         event.preventDefault();
-        if ($html.is(':animated')) return;
+        if (isAnimating) return;
 
-        if (event.deltaY > 0) {
-            if (pageIndex >= lastPageIndex) return;
+        updatePageIndex(); // ← 스크롤 전에 현재 위치 동기화
+
+        if (event.deltaY > 0 && pageIndex < lastPageIndex) {
             pageIndex++;
-        } else {
-            if (pageIndex <= 0) return;
+        } else if (event.deltaY < 0 && pageIndex > 0) {
             pageIndex--;
+        } else {
+            return;
         }
 
         const targetTop = $sections.eq(pageIndex).offset().top;
 
-        console.log('pageIndex = %d, targetTop = %d', pageIndex, targetTop);
-
-        $html.animate({ scrollTop: targetTop }, 500);
+        isAnimating = true;
+        $html.stop().animate({ scrollTop: targetTop }, 600, function () {
+            isAnimating = false;
+        });
     }, { passive: false });
+
+    // 메뉴 클릭 시 이동 + pageIndex 갱신
+    $('.menu_scroll').on('click', function (e) {
+        e.preventDefault();
+        const targetId = $(this).attr('href');
+        const targetIndex = $('.page').index($(targetId));
+
+        if (targetIndex !== -1) {
+            const targetTop = $sections.eq(targetIndex).offset().top;
+            isAnimating = true;
+            $html.stop().animate({ scrollTop: targetTop }, 600, function () {
+                pageIndex = targetIndex; // ← 여기서 정확히 동기화
+                isAnimating = false;
+            });
+        }
+    });
+
+    // 브라우저 리사이즈 대응
+    $window.on('resize', function () {
+        windowHeight = $window.height();
+    });
 });
