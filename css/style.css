@@ -45,12 +45,6 @@ body {
     #menu {
         display: none;
     }
-
-    /* #menu > ul > li {
-        width: 100%;
-        font-size: 1rem;
-        line-height: 3.5rem;
-    } */
 }
 
 /* ----------------------------------------------------------- */
@@ -260,7 +254,7 @@ h3 {
 
     #inner3 img {
         object-fit: contain;
-        width: 250px;
+        width: 300px;
         margin-bottom: 1.5rem;
     }
 
