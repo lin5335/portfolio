@@ -41,6 +41,7 @@ body {
     color: black;
 }
 
+
 @media screen and (max-width: 768px) {
     #menu {
         display: none;
@@ -106,6 +107,7 @@ span {
     font-weight: bold;
 }
 
+
 @media screen and (max-width: 768px) {
     #one {
         flex-direction: column;
@@ -166,7 +168,6 @@ span {
 /* proflie */
 
 .content {
-    /* border: 5px solid aqua; */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -239,6 +240,7 @@ h3 {
     width: 50px;
     height: 50px;
 }
+
 
 @media screen and (max-width: 768px) {
     h2 {
@@ -421,6 +423,7 @@ h3 {
     border: none;
 }
 
+
 @media screen and (max-width: 768px) {
     .text {
         width: 100%;
@@ -567,7 +570,7 @@ h3 {
     max-width: 90%;
 }
 
-/* 반응형 레이아웃 */
+
 @media screen and (max-width: 768px) {
     #four {
         height: auto;
@@ -587,16 +590,23 @@ h3 {
         width: 100% !important;
     }
 
+    #design_content > div:nth-child(1) > div:nth-child(1) {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+
     .gallery {
         width: 100% !important;
         height: auto !important;
         margin: 1rem 0;
+        display: flex;
+        justify-content: center;
     }
 
     .gallery img {
         width: 100%;
         height: auto;
-        display: block;
     }
 
     #four > .content > h2 {
@@ -669,6 +679,7 @@ h3 {
     padding: 20px 30px 50px 85px;
     margin-top: 20px;
 }
+
 
 @media screen and (max-width: 768px) {
     #five {
